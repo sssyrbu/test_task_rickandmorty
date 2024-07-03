@@ -1,4 +1,6 @@
 "use strict";
+import { initializeDB, writeCharacterToDB, closeConnection } from './database.js';
+
 const apiBaseLink = "https://rickandmortyapi.com/api/character";
 
 async function fetchAllCharacters() {
@@ -18,10 +20,17 @@ async function fetchAllCharacters() {
     return allCharacters;
 }
 
-fetchAllCharacters()
-    .then(data => {
-        console.log(data);
-    })
-    .catch(error => {
-        console.error('Error fetching characters:', error);
-    });
+(async () => {
+    try {
+        await initializeDB();
+        const data = await fetchAllCharacters();
+        for (let i = 0; i < data.length; i++) {
+            await writeCharacterToDB(data[i]);
+            console.log(`Added ${data[i].name} to db`)
+        }
+    } catch (err) {
+        console.error(err);
+    } finally {
+        await closeConnection();
+    }
+})();
