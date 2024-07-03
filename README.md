@@ -2,5 +2,7 @@
 https://docs.google.com/document/d/1Vjf3nVHdcPo6ygDzWGlru_LALdj_mh2jiQWbrx00PYY/edit
 
 Сырбу Роман Андреевич
+
 mail: syrburoman0@gmail.com
-tg: t.me/sssyrbu
+
+tg: https://t.me/sssyrbu

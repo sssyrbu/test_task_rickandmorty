@@ -28,7 +28,7 @@ export async function initializeDB() {
         await conn.query(initialQuery);
         console.log("Table created successfully");
     } catch (err) {
-        console.error("Error initializing database:", err);
+        console.error("Error initializing database: ", err);
     }
 }
 
@@ -43,7 +43,7 @@ export async function writeCharacterToDB(character_object) {
 
     try {
         await conn.query(insertDataQuery, [name, JSON.stringify(data)]);
-        console.log("Data inserted successfully");
+        console.log(`${name} inserted successfully`);
     } catch (err) {
         console.error("Error inserting data:", err);
     }

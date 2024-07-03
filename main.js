@@ -26,7 +26,6 @@ async function fetchAllCharacters() {
         const data = await fetchAllCharacters();
         for (let i = 0; i < data.length; i++) {
             await writeCharacterToDB(data[i]);
-            console.log(`Added ${data[i].name} to db`)
         }
     } catch (err) {
         console.error(err);
